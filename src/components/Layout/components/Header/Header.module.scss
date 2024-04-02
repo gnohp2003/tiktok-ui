@@ -1,4 +1,9 @@
 .wrapper {
+  --search-border-radius: 92px;
+  --search-height: 46px;
+  --search-space: 9px;
+  --search-button-width: 52px;
+
   height: var(--default-layout-header-height);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
   display: flex;
@@ -8,5 +13,96 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
-  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  background-color: #f1f1f2;
+  height: var(--search-height);
+  width: 500px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--search-border-radius);
+  border: 1px solid transparent;
+  position: relative;
+
+  .search-input {
+    background-color: transparent;
+    font-size: 1.6rem;
+    height: 100%;
+    color: #161823;
+    caret-color: var(--primary);
+    flex: 1;
+  }
+
+  .search-input:not(:placeholder-shown) {
+    ~ {
+      .clear-btn {
+        display: block;
+      }
+
+      .search-btn .search-icon {
+        color: rgba($color: #161823, $alpha: 1);
+      }
+    }
+  }
+
+  &:hover {
+    border: 1px solid #c5c6c9;
+
+    .search-btn {
+      background-color: #1618230f;
+    }
+
+    .search-icon {
+      color: rgba($color: #161823, $alpha: 1);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: var(--search-space);
+    right: var(--search-button-width);
+    width: 1px;
+    height: calc(var(--search-height) - (var(--search-space) * 2));
+    background-color: rgba($color: #161823, $alpha: 0.12);
+  }
+
+  &:has(.search-input:focus) {
+    border: 1px solid #c5c6c9;
+  }
+  // &:focus-within {
+  //   border: 1px solid #c5c6c9;
+  // }
+}
+
+.clear-btn {
+  font-size: 1.6rem;
+  color: rgba($color: #161823, $alpha: 0.34);
+  margin-right: 16px;
+  display: none;
+  cursor: pointer;
+}
+
+.loading-icon {
+  font-size: 1.6rem;
+  color: rgba($color: #161823, $alpha: 0.34);
+  margin-right: 16px;
+  display: none;
+}
+
+.search-btn {
+  width: var(--search-button-width);
+  height: 100%;
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+  cursor: pointer;
+  .search-icon {
+    font-size: 2rem;
+    color: rgba($color: #161823, $alpha: 0.34);
+  }
 }
