@@ -7,12 +7,10 @@
 .container {
   width: var(--default-layout-width);
   min-height: 1000px;
-  background-color: #333;
   display: flex;
 }
 
 .content {
   flex: 1;
-  background-color: #333;
   min-height: 1000px;
 }
