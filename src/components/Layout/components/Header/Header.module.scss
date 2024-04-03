@@ -8,6 +8,13 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
   display: flex;
   justify-content: center;
+
+  .upload-btn {
+    border-color: rgba($color: #161823, $alpha: 0.12);
+    border-radius: 2px;
+    padding: 6px 16px;
+    font-weight: 600;
+  }
 }
 
 .inner {
@@ -16,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 24px 0 16px;
 }
 
 .search {
@@ -116,4 +124,10 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: rgba($color: #161823, $alpha: 0.5);
+}
+
+.more-menu-icon {
+  margin-left: 16px;
+  padding: 0 8px;
+  cursor: pointer;
 }

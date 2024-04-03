@@ -3,15 +3,22 @@ import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleNotch,
+  faCircleXmark,
+  faEllipsisVertical,
+  faMagnifyingGlass,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItems';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([1]);
+  const [searchResult, setSearchResult] = useState([]);
 
   return (
     <header className={cx('wrapper')}>
@@ -45,7 +52,15 @@ function Header() {
             </button>
           </div>
         </Tippy>
-        <div className={cx('actions')}></div>
+        <div className={cx('actions')}>
+          <Button className={cx('upload-btn')} text to="/Following" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+            Upload
+          </Button>
+          <Button primary>Log in</Button>
+          <span className={cx('more-menu-icon')}>
+            <FontAwesomeIcon icon={faEllipsisVertical} />
+          </span>
+        </div>
       </div>
     </header>
   );
