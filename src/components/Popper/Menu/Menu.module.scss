@@ -1,0 +1,29 @@
+.content {
+  min-width: 223px;
+
+  //   item override
+  .menu-item {
+    display: flex;
+    justify-content: flex-start;
+    // align-items: center;
+    // justify-content: center;
+    margin-left: 0;
+    width: 100%;
+    padding: 19px 16px;
+    border-radius: 0;
+  }
+}
+
+// popper
+.menu-list {
+  padding-top: 0;
+  min-height: unset;
+  max-height: unset;
+}
+
+// item
+.menu-item {
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+}
