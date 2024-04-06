@@ -29,6 +29,36 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faLanguage} />,
     title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          type: 'language',
+          code: 'en',
+          title: 'English',
+        },
+        {
+          type: 'language',
+          code: 'vi',
+          title: 'Vietnamese',
+        },
+        {
+          type: 'language',
+          code: 'zh',
+          title: 'Chinese',
+        },
+        {
+          type: 'language',
+          code: 'ja',
+          title: 'Japanese',
+        },
+        {
+          type: 'language',
+          code: 'ko',
+          title: 'Korean',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -40,6 +70,10 @@ const MENU_ITEMS = [
     title: 'Keyboard shortcuts',
   },
 ];
+
+const handleMenuChange = (item) => {
+  console.log(item);
+};
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
@@ -81,7 +115,7 @@ function Header() {
             Upload
           </Button>
           <Button primary>Log in</Button>
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
             <button className={cx('more-menu-icon')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>

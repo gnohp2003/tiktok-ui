@@ -23,7 +23,31 @@
 
 // item
 .menu-item {
+  line-height: 2.4rem;
+
   &:hover {
     background: rgba(22, 24, 35, 0.03);
   }
+}
+
+// header
+.header {
+  --header-height: 50px;
+  height: var(--header-height);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.back-btn {
+  width: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

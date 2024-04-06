@@ -17,7 +17,7 @@ function Button({
   rightIcon,
   href,
   children,
-  onClick,
+  onClick = () => {},
   ...propsExpand
 }) {
   let Comp = 'button';
