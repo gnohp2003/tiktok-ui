@@ -126,6 +126,38 @@
   color: rgba($color: #161823, $alpha: 0.5);
 }
 
+// user
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 23px;
+  background-color: transparent;
+  padding-left: 6px;
+  margin-left: 26px;
+  cursor: pointer;
+}
+
+.action-link {
+  margin-left: 26px;
+  .action-btn {
+    position: relative;
+    bottom: -3.5px;
+    margin-left: 0;
+  }
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
 .more-menu-icon {
   font-size: 2rem;
   margin-left: 28px;

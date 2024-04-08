@@ -5,11 +5,12 @@
   .menu-item {
     display: flex;
     justify-content: flex-start;
+    font-weight: 600;
     // align-items: center;
     // justify-content: center;
     margin-left: 0;
     width: 100%;
-    padding: 19px 16px;
+    padding: 10px 16px;
     border-radius: 0;
   }
 }
@@ -50,4 +51,8 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.separate {
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
