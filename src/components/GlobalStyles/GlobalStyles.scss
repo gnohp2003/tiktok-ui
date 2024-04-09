@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   --primary: #fe2c55;
@@ -21,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'TikTokFont', sans-serif;
   font-size: 1.6rem;
   color: var(--text-color);
   line-height: 1.5;
@@ -34,9 +33,29 @@ body {
 }
 
 button {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'TikTokFont', sans-serif;
 }
 
+// font
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
+}
+
+// handle scroll bar on different browser (firefox, edge, chrome, IE)
 @-moz-document url-prefix() {
   body {
     scrollbar-width: none;

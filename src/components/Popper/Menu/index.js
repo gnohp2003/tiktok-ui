@@ -24,7 +24,9 @@ function Menu({ children, items, onChange = defaultFn }) {
           key={index}
           item={item}
           onClick={() => {
-            hasChildren ? setHistoryMenu((prev) => [...prev, item.children]) : onChange(item);
+            hasChildren
+              ? setHistoryMenu((prev) => [...prev, item.children])
+              : onChange(item);
           }}
         />
       );
@@ -42,7 +44,9 @@ function Menu({ children, items, onChange = defaultFn }) {
               <Header
                 title={currentMenu.title}
                 onBack={() => {
-                  setHistoryMenu((prev) => prev.splice(historyMenu.length - 1, 1));
+                  setHistoryMenu((prev) =>
+                    prev.splice(historyMenu.length - 1, 1),
+                  );
                 }}
               />
             )}

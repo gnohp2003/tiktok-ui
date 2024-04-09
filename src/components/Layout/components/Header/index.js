@@ -4,16 +4,10 @@ import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faArrowRightFromBracket,
   faCircleNotch,
   faCircleXmark,
-  faCoins,
   faEllipsisVertical,
-  faGear,
-  faLanguage,
-  faMagnifyingGlass,
   faPlus,
-  faVideo,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -22,27 +16,34 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItems';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import {
-  faBookmark,
-  faCircleQuestion,
-  faEnvelope,
-  faKeyboard,
-  faLightbulb,
-  faMessage,
-  faUser,
-} from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
+import {
+  BookMarkIcon,
+  CoinsIcon,
+  FeedbackIcon,
+  InboxIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  LiveCreatorIcon,
+  LiveIcon,
+  LogoutIcon,
+  MessageIcon,
+  SearchIcon,
+  SettingIcon,
+  UserIcon,
+} from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faLightbulb} />,
+    icon: <LiveCreatorIcon width="2rem" height="2rem" />,
     title: 'LIVE CREATOR HUB',
     to: '/live',
   },
   {
-    icon: <FontAwesomeIcon icon={faLanguage} />,
+    icon: <LanguageIcon width="2rem" height="2rem" />,
     title: 'English',
     children: {
       title: 'Language',
@@ -76,45 +77,45 @@ const MENU_ITEMS = [
     },
   },
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedbackIcon width="2rem" height="2rem" />,
     title: 'Feedback and help',
     to: '/feedback',
   },
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon width="2rem" height="2rem" />,
     title: 'Keyboard shortcuts',
   },
 ];
 
 const USER_MENU = [
   {
-    icon: <FontAwesomeIcon icon={faUser} />,
+    icon: <UserIcon width="2rem" height="2rem" />,
     title: 'View profile',
     to: '/profile',
   },
   {
-    icon: <FontAwesomeIcon icon={faBookmark} />,
+    icon: <BookMarkIcon width="2rem" height="2rem" />,
     title: 'Favorites',
     to: '/favorites',
   },
   {
-    icon: <FontAwesomeIcon icon={faCoins} />,
+    icon: <CoinsIcon width="2rem" height="2rem" />,
     title: 'Get Coins',
     to: '/profile',
   },
   {
-    icon: <FontAwesomeIcon icon={faVideo} />,
+    icon: <LiveIcon width="2rem" height="2rem" />,
     title: 'LIVE Studio',
     to: '/profile',
   },
   ...MENU_ITEMS,
   {
-    icon: <FontAwesomeIcon icon={faGear} />,
+    icon: <SettingIcon width="2rem" height="2rem" />,
     title: 'Settings',
     to: '/profile',
   },
   {
-    icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+    icon: <LogoutIcon width="2rem" height="2rem" />,
     title: 'Log out',
     to: '/live',
     separate: true,
@@ -151,48 +152,73 @@ function Header() {
           )}
         >
           <div className={cx('search')}>
-            <input className={cx('search-input')} placeholder="Search accounts and videos" spellCheck="false" />
+            <input
+              className={cx('search-input')}
+              placeholder="Search"
+              spellCheck="false"
+            />
             <button className={cx('clear-btn')}>
               <FontAwesomeIcon icon={faCircleXmark} />
             </button>
-            <FontAwesomeIcon className={cx('loading-icon')} icon={faCircleNotch} />
+            <FontAwesomeIcon
+              className={cx('loading-icon')}
+              icon={faCircleNotch}
+            />
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon className={cx('search-icon')} icon={faMagnifyingGlass} />
+              <SearchIcon
+                className={cx('search-icon')}
+                width="2.4rem"
+                height="2.4rem"
+              />
             </button>
           </div>
         </HeadlessTippy>
         <div className={cx('actions')}>
           {currentUser ? (
             <>
-              <Button className={cx('upload-btn')} text to="/Following" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+              <Button
+                className={cx('upload-btn')}
+                text
+                to="/Following"
+                leftIcon={<FontAwesomeIcon icon={faPlus} />}
+              >
                 Upload
               </Button>
               <Tippy delay={[0, 200]} content="Messages">
                 <Link to="" className={cx('action-link')}>
-                  <button className={cx('action-btn')}>
-                    <FontAwesomeIcon icon={faMessage} />
+                  <button className={cx('action-btn', 'message')}>
+                    <MessageIcon width="2.6rem" height="2.6rem" />
                   </button>
                 </Link>
               </Tippy>
               <Tippy delay={[0, 200]} content="Inbox">
-                <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faEnvelope} />
+                <button className={cx('action-btn', 'inbox')}>
+                  <InboxIcon />
                 </button>
               </Tippy>
+              <span className={cx('sup-badge')}>27</span>
             </>
           ) : (
             <>
-              <Button className={cx('upload-btn')} text to="/Following" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+              <Button
+                className={cx('upload-btn')}
+                text
+                to="/Following"
+                leftIcon={<FontAwesomeIcon icon={faPlus} />}
+              >
                 Upload
               </Button>
               <Button primary>Log in</Button>
             </>
           )}
-          <Menu items={currentUser ? USER_MENU : MENU_ITEMS} onChange={handleMenuChange}>
+          <Menu
+            items={currentUser ? USER_MENU : MENU_ITEMS}
+            onChange={handleMenuChange}
+          >
             {currentUser ? (
-              <img
+              <Image
                 className={cx('user-avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/a1378e99fc7a49137c8c1e9180c38b94.jpeg?lk3s=a5d48078&x-expires=1712710800&x-signature=fWOhUh2oW3tZpW0CQwfcNNZMgwA%3D"
+                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7311976317673570350~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1712833200&x-signature=6B6Pd%2FnTZp2Y9d2HLaQ%2FY7ItBA8%3D"
                 alt="avatar"
               />
             ) : (
