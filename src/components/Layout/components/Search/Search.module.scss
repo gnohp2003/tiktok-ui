@@ -82,7 +82,17 @@
   font-size: 1.6rem;
   color: rgba($color: #161823, $alpha: 0.34);
   margin-right: 16px;
-  display: none;
+  animation: load 2s linear infinite;
+}
+
+@keyframes load {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .search-btn {
