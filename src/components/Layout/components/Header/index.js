@@ -24,6 +24,7 @@ import {
 } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -123,9 +124,9 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <div className={cx('logo')}>
+        <Link to={routes.home} className={cx('logo')}>
           <img src={images.logo} alt="Tiktok" />
-        </div>
+        </Link>
         {/* search */}
         <Search />
         <div className={cx('actions')}>

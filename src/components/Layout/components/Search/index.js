@@ -48,6 +48,7 @@ function Search() {
   };
 
   const handleHideSearchResult = () => setShowSearchResult(false);
+  const handleSearchButton = () => inputRef.current.blur();
 
   return (
     <HeadlessTippy
@@ -76,7 +77,9 @@ function Search() {
           placeholder="Search"
           spellCheck="false"
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={(e) =>
+            !e.target.value.startsWith(' ') && setSearchValue(e.target.value)
+          }
           onFocus={() => setShowSearchResult(true)}
         />
         {!!searchValue && !loading && (
@@ -95,6 +98,7 @@ function Search() {
             className={cx('search-icon')}
             width="2.4rem"
             height="2.4rem"
+            onClick={handleSearchButton}
           />
         </button>
       </div>
