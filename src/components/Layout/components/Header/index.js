@@ -65,6 +65,51 @@ const MENU_ITEMS = [
           code: 'ko',
           title: 'Korean',
         },
+        {
+          type: 'language',
+          code: 'cs',
+          title: 'Czech',
+        },
+        {
+          type: 'language',
+          code: 'nl',
+          title: 'Dutch',
+        },
+        {
+          type: 'language',
+          code: 'fr',
+          title: 'French',
+        },
+        {
+          type: 'language',
+          code: 'de',
+          title: 'German',
+        },
+        {
+          type: 'language',
+          code: 'it',
+          title: 'Italian',
+        },
+        {
+          type: 'language',
+          code: 'lo',
+          title: 'Lao',
+        },
+        {
+          type: 'language',
+          code: 'la',
+          title: 'Latin',
+        },
+        {
+          type: 'language',
+          code: 'pt',
+          title: 'Portuguese',
+        },
+        {
+          type: 'language',
+          code: 'ru',
+          title: 'Russian',
+        },
       ],
     },
   },
@@ -135,7 +180,7 @@ function Header() {
               <Button
                 className={cx('upload-btn')}
                 text
-                to="/Following"
+                to={routes.upload}
                 leftIcon={<FontAwesomeIcon icon={faPlus} />}
               >
                 Upload

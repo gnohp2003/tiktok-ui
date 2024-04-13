@@ -7,6 +7,7 @@
   --border-color: rgba(22, 24, 35, 0.03);
   --default-layout-header-height: 60px;
   --default-layout-width: 1528px;
+  --font-family: 'TikTokFont', sans-serif;
 }
 
 * {
@@ -20,21 +21,48 @@ html {
 }
 
 body {
-  font-family: 'TikTokFont', sans-serif;
+  font-family: var(--font-family);
   font-size: 1.6rem;
   color: var(--text-color);
   line-height: 1.5;
   text-rendering: optimizeSpeed;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow-y: overlay;
 }
 
 button,
 input {
-  font-family: 'TikTokFont', sans-serif;
+  font-family: var(--font-family);
+}
+
+// scroll bar
+html ::-webkit-scrollbar {
+  border-radius: 0px;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html ::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 // font
@@ -54,24 +82,6 @@ input {
   font-family: TikTokFont;
   src: url('/assets/fonts/TikTokFont-Bold.woff2');
   font-weight: 700;
-}
-
-// handle scroll bar on different browser (firefox, edge, chrome, IE)
-@-moz-document url-prefix() {
-  body {
-    scrollbar-width: none;
-  }
-}
-
-@supports (-ms-ime-align: auto) {
-  body {
-    -ms-overflow-style: none;
-  }
-}
-
-_:-ms-fullscreen,
-:root .ie11up {
-  -ms-overflow-style: none;
 }
 
 button,

@@ -51,58 +51,61 @@ function Search() {
   const handleSearchButton = () => inputRef.current.blur();
 
   return (
-    <HeadlessTippy
-      interactive
-      visible={showSearchResult && searchResult.length > 0}
-      render={(attrs) => (
-        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            <div className={cx('search-label')}>Accounts</div>
-            {searchResult.map((result) => (
-              <AccountItem
-                key={result.id}
-                data={result}
-                onClick={handleHideSearchResult}
-              />
-            ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handleHideSearchResult}
-    >
-      <div className={cx('search')}>
-        <input
-          ref={inputRef}
-          className={cx('search-input')}
-          placeholder="Search"
-          spellCheck="false"
-          value={searchValue}
-          onChange={(e) =>
-            !e.target.value.startsWith(' ') && setSearchValue(e.target.value)
-          }
-          onFocus={() => setShowSearchResult(true)}
-        />
-        {!!searchValue && !loading && (
-          <button className={cx('clear-btn')} onClick={handleClear}>
-            <FontAwesomeIcon icon={faCircleXmark} />
+    // the div tag contains tippy with the purpose removes warning from tippy.
+    <div>
+      <HeadlessTippy
+        interactive
+        visible={showSearchResult && searchResult.length > 0}
+        render={(attrs) => (
+          <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              <div className={cx('search-label')}>Accounts</div>
+              {searchResult.map((result) => (
+                <AccountItem
+                  key={result.id}
+                  data={result}
+                  onClick={handleHideSearchResult}
+                />
+              ))}
+            </PopperWrapper>
+          </div>
+        )}
+        onClickOutside={handleHideSearchResult}
+      >
+        <div className={cx('search')}>
+          <input
+            ref={inputRef}
+            className={cx('search-input')}
+            placeholder="Search"
+            spellCheck="false"
+            value={searchValue}
+            onChange={(e) =>
+              !e.target.value.startsWith(' ') && setSearchValue(e.target.value)
+            }
+            onFocus={() => setShowSearchResult(true)}
+          />
+          {!!searchValue && !loading && (
+            <button className={cx('clear-btn')} onClick={handleClear}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          )}
+          {loading && (
+            <FontAwesomeIcon
+              className={cx('loading-icon')}
+              icon={faCircleNotch}
+            />
+          )}
+          <button className={cx('search-btn')}>
+            <SearchIcon
+              className={cx('search-icon')}
+              width="2.4rem"
+              height="2.4rem"
+              onClick={handleSearchButton}
+            />
           </button>
-        )}
-        {loading && (
-          <FontAwesomeIcon
-            className={cx('loading-icon')}
-            icon={faCircleNotch}
-          />
-        )}
-        <button className={cx('search-btn')}>
-          <SearchIcon
-            className={cx('search-icon')}
-            width="2.4rem"
-            height="2.4rem"
-            onClick={handleSearchButton}
-          />
-        </button>
-      </div>
-    </HeadlessTippy>
+        </div>
+      </HeadlessTippy>
+    </div>
   );
 }
 
