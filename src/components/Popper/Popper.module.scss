@@ -4,8 +4,7 @@
   border-radius: 8px;
   max-height: min(-156px + 100vh, 734px);
   min-height: 100px;
-  overflow: hidden auto;
-  scrollbar-width: thin;
+  overflow-y: auto;
   background-color: var(--white);
   padding-top: 8px;
 }

@@ -24,7 +24,7 @@ import {
 } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
-import routes from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -169,7 +169,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Link to={routes.home} className={cx('logo')}>
+        <Link to={config.routes.home} className={cx('logo')}>
           <img src={images.logo} alt="Tiktok" />
         </Link>
         {/* search */}
@@ -180,7 +180,7 @@ function Header() {
               <Button
                 className={cx('upload-btn')}
                 text
-                to={routes.upload}
+                to={config.routes.upload}
                 leftIcon={<FontAwesomeIcon icon={faPlus} />}
               >
                 Upload
