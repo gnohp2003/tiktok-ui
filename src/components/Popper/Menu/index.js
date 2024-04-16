@@ -5,12 +5,18 @@ import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
+function Menu({
+  children,
+  items = [],
+  hideOnClick = false,
+  onChange = defaultFn,
+}) {
   const [historyMenu, setHistoryMenu] = useState([{ data: items }]);
 
   const currentMenu = historyMenu[historyMenu.length - 1];
@@ -34,7 +40,7 @@ function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
 
   return (
     <Tippy
-      interactive="true"
+      interactive
       placement="bottom-end"
       hideOnClick={hideOnClick}
       offset={[12, 10]}
@@ -61,5 +67,12 @@ function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
     </Tippy>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+  items: PropTypes.array.isRequired,
+  hideOnClick: PropTypes.bool,
+  onChange: PropTypes.func,
+};
 
 export default Menu;
