@@ -22,6 +22,14 @@
   }
 }
 
+.text {
+  color: var(--text-color);
+  text-decoration: none;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
 .primary {
   color: var(--white);
   background-color: var(--primary);
@@ -45,14 +53,6 @@
 .large {
   padding: 14px 16px;
   min-width: 140px;
-}
-
-.text {
-  color: var(--text-color);
-  text-decoration: none;
-  &:hover {
-    background-color: rgba(22, 24, 35, 0.03);
-  }
 }
 
 .icon + .title,

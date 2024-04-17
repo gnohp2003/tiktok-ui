@@ -79,7 +79,7 @@
 .clear-btn {
   font-size: 1.6rem;
   color: rgba($color: #161823, $alpha: 0.34);
-  margin-right: 16px;
+  margin: 0 16px 0 12px;
   display: none;
   cursor: pointer;
 
@@ -95,7 +95,7 @@
 .loading-icon {
   font-size: 1.6rem;
   color: rgba($color: #161823, $alpha: 0.34);
-  margin-right: 16px;
+  margin: 0 16px 0 12px;
   animation: load 2s linear infinite;
 }
 
@@ -115,6 +115,9 @@
   border-top-right-radius: var(--search-border-radius);
   border-bottom-right-radius: var(--search-border-radius);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-icon {
