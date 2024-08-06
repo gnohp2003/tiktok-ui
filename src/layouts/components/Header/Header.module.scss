@@ -1,14 +1,13 @@
 .wrapper {
   height: var(--default-layout-header-height);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
-  display: flex;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   background-color: var(--white);
+  margin-right: 8px;
   .upload-btn {
     border-color: rgba($color: #161823, $alpha: 0.12);
     border-radius: 2px;
@@ -17,14 +16,17 @@
   }
 }
 
+.wrapper[add-padding] {
+  padding-right: 8px;
+}
+
 .inner {
   height: 100%;
-  width: var(--default-layout-width);
-  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px 0 16px;
+  padding-left: 16px;
+  padding-right: 24px;
 }
 
 .logo {
@@ -88,3 +90,10 @@
   top: 7px;
   right: 71px;
 }
+
+// responsive
+// @media (min-width: 120em) {
+//   .sup-badge {
+//     right: 260px;
+//   }
+// }

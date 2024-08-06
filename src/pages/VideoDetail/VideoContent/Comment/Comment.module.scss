@@ -1,0 +1,45 @@
+.wrapper {
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(22, 24, 35, 0.2);
+}
+
+.separate {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.no-comment {
+  text-align: center;
+  line-height: 250px;
+  font-size: 1.4rem;
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 400;
+  user-select: none;
+}
+
+// login to use comment function
+.login-announce {
+  height: 300px;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.login-announce-title {
+  color: rgba(22, 24, 35, 0.5);
+}
+
+.login-link {
+  color: var(--primary);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

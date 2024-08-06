@@ -25,6 +25,10 @@ import {
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
+import { useStore } from '~/context';
+import { useAuth } from '~/context';
+import { useEffect, useRef, useState } from 'react';
+import MenuItem from '~/components/Popper/Menu/MenuItem';
 
 const cx = classNames.bind(styles);
 
@@ -154,20 +158,40 @@ const USER_MENU = [
   {
     icon: <LogoutIcon width="2rem" height="2rem" />,
     title: 'Log out',
-    to: '/live',
+    // to: '/live',
     separate: true,
   },
 ];
 
-const handleMenuChange = (item) => {
-  console.log(item);
-};
-
 function Header() {
-  const currentUser = true;
+  const { handleDisplayForm } = useStore();
+  const { headerRef } = useStore();
+  const { auth, setAuth, isAuth, setIsAuth, setToken } = useAuth();
+
+  const handleMenuChange = (item) => {
+    switch (item.title) {
+      case 'Log out':
+        setAuth({});
+        setIsAuth(false);
+        setToken('');
+        localStorage.removeItem('site');
+        window.location.reload();
+        break;
+      default:
+        console.log('haizzzzzzzz');
+        break;
+    }
+  };
+
+  const handleClickUpLoad = (e) => {
+    if (!isAuth) {
+      e.preventDefault();
+      handleDisplayForm();
+    }
+  };
 
   return (
-    <header className={cx('wrapper')}>
+    <header ref={headerRef} className={cx('wrapper')}>
       <div className={cx('inner')}>
         <Link to={config.routes.home} className={cx('logo')}>
           <img src={images.logo} alt="Tiktok" />
@@ -175,12 +199,12 @@ function Header() {
         {/* search */}
         <Search />
         <div className={cx('actions')}>
-          {currentUser ? (
+          {isAuth ? (
             <>
               <Button
                 className={cx('upload-btn')}
                 text
-                to={config.routes.upload}
+                to={config.routes.creator}
                 leftIcon={<FontAwesomeIcon icon={faPlus} />}
               >
                 Upload
@@ -198,6 +222,13 @@ function Header() {
                 </button>
               </Tippy>
               <span className={cx('sup-badge')}>27</span>
+              <Menu items={USER_MENU} onChange={handleMenuChange}>
+                <Image
+                  className={cx('user-avatar')}
+                  src={auth.avatar}
+                  alt="avatar"
+                />
+              </Menu>
             </>
           ) : (
             <>
@@ -205,29 +236,21 @@ function Header() {
                 className={cx('upload-btn')}
                 text
                 to="/Following"
+                onClick={(e) => handleClickUpLoad(e)}
                 leftIcon={<FontAwesomeIcon icon={faPlus} />}
               >
                 Upload
               </Button>
-              <Button primary>Log in</Button>
+              <Button primary onClick={handleDisplayForm}>
+                Log in
+              </Button>
+              <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                <button className={cx('more-menu-icon')}>
+                  <FontAwesomeIcon icon={faEllipsisVertical} />
+                </button>
+              </Menu>
             </>
           )}
-          <Menu
-            items={currentUser ? USER_MENU : MENU_ITEMS}
-            onChange={handleMenuChange}
-          >
-            {currentUser ? (
-              <Image
-                className={cx('user-avatar')}
-                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7311976317673570350~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1712833200&x-signature=6B6Pd%2FnTZp2Y9d2HLaQ%2FY7ItBA8%3D"
-                alt="avatar"
-              />
-            ) : (
-              <button className={cx('more-menu-icon')}>
-                <FontAwesomeIcon icon={faEllipsisVertical} />
-              </button>
-            )}
-          </Menu>
         </div>
       </div>
     </header>

@@ -1,4 +1,5 @@
 import './GlobalStyles.scss';
+import './grid.css';
 import PropTypes from 'prop-types';
 
 function GlobalStyles({ children }) {

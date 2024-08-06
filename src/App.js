@@ -1,37 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Fragment } from 'react';
-import { publicRoutes } from './routes';
-import { DefaultLayout } from '~/layouts';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
+import { useState } from 'react';
+import { FeatureUnavailable } from './components/FeatureUnavailable';
+
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          {publicRoutes.map((route, index) => {
-            let Layout = DefaultLayout;
+  const [noSupport, setNoSupport] = useState(null);
 
-            if (route.layout === null) {
-              Layout = Fragment;
-            } else if (route.layout) {
-              Layout = route.layout;
-            }
+  window.onresize = () => {
+    const width = window.innerWidth;
 
-            const Page = route.component;
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                element={
-                  <Layout>
-                    <Page />
-                  </Layout>
-                }
-              />
-            );
-          })}
-        </Routes>
-      </div>
-    </Router>
+    if (width <= 739) {
+      setNoSupport(true);
+    } else if (width >= 740 && width <= 1024) {
+      setNoSupport(true);
+    } else if (width >= 1025) {
+      setNoSupport(false);
+    }
+  };
+
+  return !noSupport ? (
+    <div className="App grid">
+      <RouterProvider router={router} />
+    </div>
+  ) : (
+    <FeatureUnavailable title="The screen is not assisted. Please switching to PC screen!" />
   );
 }
 

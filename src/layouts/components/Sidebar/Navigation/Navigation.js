@@ -4,8 +4,8 @@ import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Navigation({ children }) {
-  return <nav className={cx('wrapper')}>{children}</nav>;
+function Navigation({ className, children }) {
+  return <nav className={cx('wrapper', className)}>{children}</nav>;
 }
 
 Navigation.propTypes = {

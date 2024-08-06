@@ -1,0 +1,242 @@
+.wrapper {
+  height: calc(578px - 64px);
+}
+
+.title {
+  font-size: 3.2rem;
+  margin: 16px auto;
+  font-weight: bold;
+  text-align: center;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.phone-login-link,
+.phone-sign-up-link {
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 250ms ease 0s;
+  &:hover {
+    text-decoration: underline rgba(22, 24, 35, 0.75);
+    color: var(--text-color);
+  }
+}
+
+.form-group {
+  margin-bottom: 9px;
+}
+
+.input {
+  border-radius: 2px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  padding-inline-start: 12px;
+  color: var(--text-color);
+  line-height: 100%;
+  outline: none;
+  font-size: 1.6rem;
+  height: 44px;
+  caret-color: var(--primary);
+  width: 100%;
+  padding-inline-end: unset;
+
+  &::placeholder {
+    color: rgba(22, 24, 35, 0.7);
+  }
+}
+
+.group-password {
+  position: relative;
+}
+
+.input-password {
+  padding-inline-end: 40px;
+
+  &:focus {
+    margin-bottom: 9px;
+  }
+
+  &:focus ~ {
+    .desc-title-rule {
+      display: block;
+    }
+
+    .password-rule {
+      display: flex;
+    }
+  }
+}
+
+// password rule
+.desc-title-rule {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 4px 0px;
+  font-size: 1.4rem;
+  display: none;
+}
+
+.desc-title-rule.invalid {
+  display: block;
+}
+
+.password-rule {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin: 4px 0px;
+  color: rgba(22, 24, 35, 0.5);
+  display: none;
+
+  svg {
+    margin-inline-end: 4px;
+  }
+
+  .error {
+    color: var(--error);
+  }
+
+  .valid {
+    color: rgb(11, 224, 155);
+  }
+}
+
+.password-rule:has(.error) {
+  display: flex;
+}
+
+// input error
+.input-password.error {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.error-container {
+  font-size: 12px;
+  line-height: 15px;
+  margin: 4px 0px;
+  color: rgb(255, 76, 58);
+}
+
+.error-text {
+}
+
+.error-icon {
+  flex-shrink: 0;
+  margin-inline-end: 16px;
+}
+
+.icon-container {
+  height: 44px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding-inline-end: 12px;
+}
+
+.icon {
+  width: 100%;
+  line-height: 0;
+  font-size: unset;
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.forgot-password-link {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: inline-block;
+  transition: color 250ms ease 0s;
+
+  &:hover {
+    text-decoration: underline rgba(22, 24, 35, 0.75);
+    color: var(--text-color);
+  }
+}
+
+.submit-btn,
+.sign-up-btn {
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: var(--primary);
+  min-width: 120px;
+  min-height: 46px;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  font-weight: 700;
+  padding: 6px 8px;
+  user-select: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-btn {
+  margin-top: 0;
+}
+
+.submit-btn[disabled],
+.sign-up-btn[disabled] {
+  color: rgba(22, 24, 35, 0.34);
+  background-color: rgba(22, 24, 35, 0.06);
+  pointer-events: none;
+}
+
+.submit-btn > span,
+.sign-up-btn > span {
+  display: flex;
+  align-items: center;
+}
+
+.submit-btn svg,
+.sign-up-btn svg {
+  animation: submit-load linear 1s infinite;
+  fill: none;
+  + .submit-btn-text {
+    display: none;
+  }
+}
+
+@keyframes submit-load {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Agreement
+.form-agreement {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.agreement-text {
+  width: 337px;
+  text-align: justify;
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.agreement-link {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+}

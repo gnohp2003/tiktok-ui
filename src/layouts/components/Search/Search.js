@@ -32,14 +32,12 @@ function Search() {
     setLoading(true);
 
     // call api
-    const fetchApi = async () => {
+    (async () => {
       setLoading(true);
       const result = await searchServices.search(debounceValue);
       setSearchResult(result);
       setLoading(false);
-    };
-
-    fetchApi();
+    })();
   }, [debounceValue]);
 
   const handleClear = () => {

@@ -1,5 +1,7 @@
+import { FeatureUnavailable } from '~/components/FeatureUnavailable';
+
 function Upload() {
-  return <h1>Upload</h1>;
+  return <FeatureUnavailable />;
 }
 
 export default Upload;

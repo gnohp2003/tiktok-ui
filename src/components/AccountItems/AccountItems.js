@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 function AccountItem({ data, onClick }) {
   return (
-    <Link to={`/@${data.nickname}`} onClick={onClick}>
+    <Link to={`/profile/@${data.nickname}`} onClick={onClick}>
       <div className={cx('wrapper')}>
         <Image className={cx('avatar')} src={data.avatar} alt={data.avatar} />
         <div className={cx('info')}>

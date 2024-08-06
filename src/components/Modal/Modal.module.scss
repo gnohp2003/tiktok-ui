@@ -1,0 +1,292 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 11;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container[open] {
+  animation: fade-in cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+.modal-container[close] {
+  animation: fade-out cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+.hide-modal {
+  display: none;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 483px;
+  // height: 100%;
+  border-radius: 8px;
+}
+
+.form-container[open] {
+  animation: grow cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+.form-container[close] {
+  animation: shrink cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.form-heading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.action {
+  position: relative;
+  display: flex;
+}
+
+.close-btn {
+  transform: scale(1.7);
+  background-color: rgba(22, 24, 35, 0.03);
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  cursor: pointer;
+}
+
+.back-btn {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  cursor: pointer;
+}
+
+.form-title {
+  margin: 64px auto 16px;
+  font-size: 3.3rem;
+  text-align: center;
+}
+
+// form body
+.login-body {
+  width: 363px;
+  margin: 64px auto auto;
+}
+
+.login-option-wrapper {
+}
+
+.login-option-container,
+.signup-option-container {
+  overflow-y: scroll;
+  padding: 10px 5px 2px 13px;
+  height: 256px;
+
+  .login-option-btn {
+    margin-left: 0;
+  }
+}
+
+.signup-option-container {
+  height: 379.5px;
+}
+
+.login-option-btn {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 8px;
+  font-weight: 600;
+  position: relative;
+
+  &:hover {
+    border-color: rgb(208, 209, 211);
+    background-color: rgb(248, 248, 248);
+  }
+}
+
+.login-option-btn span:first-child {
+  position: absolute;
+  left: 12px;
+}
+
+.login-option-btn span:last-child {
+  margin-left: 0;
+}
+
+.last-login {
+  position: relative;
+
+  &::after {
+    content: 'Last login';
+    color: var(--white);
+    background-color: var(--secondary);
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    border-radius: 10px 10px 10px 2px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    height: 16px;
+    line-height: 16px;
+    padding: 0 8px;
+  }
+}
+
+.see-more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hide-login-btn {
+  display: none;
+}
+
+.hide-more-btn {
+  display: none;
+}
+
+// separate
+.separator-wrapper {
+  margin: 22px auto;
+  width: 337px;
+  height: 22px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.separator-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(22, 24, 35, 0.12);
+}
+
+.separator-text {
+  text-align: center;
+  padding: 0 15px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 2.2rem;
+  letter-spacing: 0.127px;
+  color: rgba(22, 24, 35, 0.5);
+}
+
+// guest login button
+.guest-btn-container {
+  width: 363px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.login-guest-btn {
+  width: 337px;
+  height: 100%;
+  line-height: 44px;
+  font-size: 1.5rem;
+  padding: 0;
+  border-radius: 8px;
+}
+
+// form agreement
+.form-agreement {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 12px 30px;
+}
+
+.agreement-text {
+  width: 337px;
+  text-align: justify;
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.agreement-link {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+}
+
+// form footer
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(22, 24, 35);
+  border-top: 0.5px solid rgba(22, 24, 35, 0.12);
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  height: 64px;
+  width: 483px;
+}
+
+.footer-text {
+}
+
+.footer-link {
+  color: var(--primary);
+  margin-left: 5px;
+  font-weight: 600;
+}

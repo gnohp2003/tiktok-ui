@@ -10,9 +10,9 @@ function DefaultLayout({ children }) {
   return (
     <div className={cx('wrapper')}>
       <Header />
-      <div className={cx('container')}>
+      <div className={cx('container') + ' row'}>
         <Sidebar />
-        <div className={cx('content')}>{children}</div>
+        <div className={cx('content') + ' col l-10'}>{children}</div>
       </div>
     </div>
   );

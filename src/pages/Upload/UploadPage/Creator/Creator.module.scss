@@ -1,0 +1,85 @@
+.wrapper {
+  background-color: rgb(248, 248, 248);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-container {
+  background-color: var(--white);
+  padding: 32px;
+  width: initial;
+  height: initial;
+  width: 1016px;
+  height: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
+
+.upload-group {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(248, 248, 248);
+  border-radius: 4px;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+.upload-content {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-icon {
+  opacity: 0.32;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.sub-title {
+  font-size: 1.6rem;
+  color: rgba($color: #000000, $alpha: 0.65);
+}
+
+.select-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 16px;
+}

@@ -6,8 +6,10 @@ const httpRequest = axios.create({
 
 // custom get method
 const get = async (path, options = {}) => {
-  const response = await httpRequest.get(path, options);
-  return response.data;
+  try {
+    const response = await httpRequest.get(path, options);
+    return response.data.data;
+  } catch (error) {}
 };
 
 export default httpRequest;

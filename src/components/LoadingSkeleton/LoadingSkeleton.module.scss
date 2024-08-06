@@ -1,0 +1,41 @@
+.container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.user-profile-avatar {
+  border-radius: 50%;
+  width: 116px;
+  height: 116px;
+}
+
+.content {
+  margin-left: 15px;
+}
+
+.user-profile-content {
+  margin: 15px 40px;
+}
+
+.user-profile-content-item {
+  margin-bottom: 10px;
+}
+
+// profile videos
+.video-profile-container {
+  margin-top: -48px;
+}
+
+.profile-video-item {
+  height: 250px;
+  max-height: 250px;
+  padding-top: 24px;
+}

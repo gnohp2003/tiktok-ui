@@ -11,20 +11,13 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function Menu({
-  children,
-  items = [],
-  hideOnClick = false,
-  onChange = defaultFn,
-}) {
+function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
   const [historyMenu, setHistoryMenu] = useState([{ data: items }]);
-
   const currentMenu = historyMenu[historyMenu.length - 1];
 
   const renderItems = () =>
     currentMenu.data.map((item, index) => {
       const hasChildren = !!item.children;
-
       return (
         <MenuItem
           key={index}

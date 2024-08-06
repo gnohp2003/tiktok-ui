@@ -1,0 +1,69 @@
+.wrapper {
+  background-color: var(--white);
+  margin: 0px 30px;
+  padding: 21px 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  flex: 1;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: 8px;
+  min-height: 40px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+
+  &:has(.input-comment:focus) {
+    border-color: rgba(22, 24, 35, 0.2);
+  }
+}
+
+.input-comment {
+  align-self: center;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: TikTokFont;
+  width: 90%;
+  word-break: break-all;
+  overflow-y: hidden;
+  resize: none;
+  caret-color: var(--primary);
+}
+
+.count-letter {
+  align-self: flex-start;
+  padding-left: 24px;
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.4rem;
+  margin-top: 10px;
+  &.limit-letter {
+    color: rgba(255, 76, 58, 0.92);
+  }
+}
+
+.send-btn {
+  flex: 0 0 48px;
+  line-height: 48px;
+  text-align: right;
+  margin-right: 4px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(22, 24, 35, 0.34);
+
+  &.active {
+    color: var(--primary);
+    cursor: pointer;
+  }
+}

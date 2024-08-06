@@ -1,0 +1,183 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 624px;
+  padding-right: 92px;
+  padding-left: 0px;
+  min-height: 140px;
+  position: relative;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.nickname {
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  word-break: break-word;
+}
+
+.full-name {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  text-overflow: ellipsis;
+  height: 25px;
+  overflow: hidden;
+  max-width: 450px;
+  white-space: nowrap;
+  display: flex;
+  align-items: flex-end;
+}
+
+.edit-btn-container {
+  margin-top: 16px;
+}
+
+.edit-btn {
+  height: 36px;
+  min-height: 36px;
+  padding: 0 16px;
+  min-width: 136px;
+  border-color: rgba(22, 24, 35, 0.12);
+  color: var(--text-color);
+  font-weight: 600;
+
+  span:last-child {
+    margin-left: 6px;
+  }
+}
+
+.follow-btn,
+.btn-group {
+  opacity: 0;
+  transition: opacity linear 300ms;
+}
+
+.follow-btn {
+  min-width: 208px;
+  min-height: 36px;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+.btn-group {
+  display: inline-flex;
+
+  .unfollow-btn {
+    margin-left: 8px;
+  }
+}
+
+.message-btn {
+  min-width: 164px;
+  min-height: 36px;
+  height: 36px;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+.unfollow-btn {
+  min-width: unset;
+  width: 36px;
+  height: 36px;
+  padding: unset;
+  border-color: rgba(22, 24, 35, 0.12);
+  color: var(--text-color);
+
+  span:last-child {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.count-info-container {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.count-container {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    .count-title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.count-number {
+}
+
+.count-title {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin-left: 6px;
+}
+
+.user-bio {
+  text-align: left;
+  color: rgb(22, 24, 35);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  max-width: 256px;
+}
+
+.bio-content {
+  line-height: 2.1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.share-btn {
+  position: absolute;
+  right: 1px;
+  top: 11px;
+  cursor: pointer;
+}

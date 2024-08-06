@@ -1,0 +1,11 @@
+html {
+  scrollbar-gutter: unset !important;
+}
+
+.wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}

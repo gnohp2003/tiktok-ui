@@ -1,7 +1,10 @@
 @import 'normalize.css';
 
 :root {
-  --primary: #fe2c55;
+  --primary: rgb(254, 44, 85);
+  --error: rgb(255, 76, 58);
+  --secondary: #20d5ec;
+  --success: #00c39b;
   --white: #fff;
   --text-color: #161823;
   --border-color: rgba(22, 24, 35, 0.03);
@@ -18,6 +21,9 @@
 
 html {
   font-size: 62.5%;
+  scrollbar-gutter: stable;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,6 +33,15 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+body[change-overflow] {
+  overflow-y: hidden;
+}
+
+body.hidden::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 button,
@@ -48,6 +63,18 @@ html *::-webkit-scrollbar-thumb {
 html *::-webkit-scrollbar-track {
   border-radius: 0;
   background-color: rgba(0, 0, 0, 0);
+}
+
+html[change-scrollbar-color] {
+  // background-color: rgba(0, 0, 0, 0.5);
+}
+
+html[change-scrollbar-color] *::-webkit-scrollbar {
+  width: 0;
+}
+
+html[change-scrollbar-color] {
+  padding-right: 8px;
 }
 
 // font
@@ -100,4 +127,17 @@ a {
 
 .tippy-content {
   padding: 8px 9px;
+}
+
+// custom toast message library
+.toast {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 10px 0;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(84, 84, 84, 0.92);
+  border-radius: 2px;
 }
